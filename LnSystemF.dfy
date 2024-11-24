@@ -1,4 +1,51 @@
 /// Utilities
+/*
+Here’s a brief breakdown of the key elements and their roles:
+
+1. Environment Management:
+
+env_plus_concat, env_extend_concat, env_concat3_empty, and similar methods handle operations on environments, which can store bindings of variables or types. These methods assert properties like environment concatenation and extension, ensuring that combining environments (or extending them with new variables or types) preserves correctness.
+
+
+
+2. Typing Lemmas:
+
+Methods like lemma_subst_tt_intro, lemma_typing_regular, and lemma_progress are concerned with proving properties of typing rules and ensuring that substitution and reduction operations preserve the type of expressions.
+
+
+
+3. Canonical Forms and Evaluation:
+
+The methods lemma_canonical_form_abs and lemma_canonical_form_tabs aim to establish the canonical forms of abstractions (like lambda terms) and polymorphic types, confirming that expressions of certain types can be reduced or simplified in particular ways.
+
+
+
+4. Uniqueness of Bindings:
+
+The methods like bds_uniq_weaken, bds_uniq_concat, and env_uniq_weaken enforce the uniqueness of bindings in the environments. This ensures that bindings don't conflict or overlap, maintaining the integrity of the type system and ensuring well-formedness.
+
+
+
+5. Structural Properties:
+
+bds_notin_dom_* methods manipulate the structure of bindings and assert that certain bindings are not present in specific slices or ranges of sequences of bindings.
+
+
+
+6. Inductive Lemmas:
+
+lemma_progress uses induction on expressions (e) and types (T) to prove the progress property of typing, which states that either the expression is a value or it can take a reduction step.
+
+
+
+7. General Environment Operations:
+
+The various env_* methods like env_concat_empty, env_extend_uniq, and env_plus_uniq provide foundational operations on environments, checking properties like uniqueness of environments after extensions, and ensuring correct combination and concatenation of environments.
+
+
+The framework you're using likely involves some form of dependent types or higher-order logic, given the strong typing, invariants, and formal proofs. Would you like assistance with any specific aspect of this code, or would you like to delve deeper into a particular lemma or method?
+*/
+
 
 datatype option<A> = None | Some(get: A);
 function chain(a: option, b: option): option
